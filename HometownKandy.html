@@ -1,0 +1,3111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Kandy | Heart of Sri Lanka</title>
+
+    <style>
+
+        /* ==============================
+           GENERAL
+        ============================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            color: #222;
+            background: #654d06;
+            line-height: 1.6;
+        }
+
+        img {
+            width: 100%;
+            display: block;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+
+        /* ==============================
+           NAVIGATION
+        ============================== */
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            padding: 18px 7%;
+
+            background: rgba(20, 35, 30, 0.92);
+
+            z-index: 1000;
+
+            backdrop-filter: blur(8px);
+        }
+
+        .logo {
+            color: white;
+            font-size: 25px;
+            font-weight: bold;
+            letter-spacing: 4px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 28px;
+        }
+
+        nav ul li a {
+            color: white;
+            font-size: 14px;
+            font-weight: bold;
+
+            transition: 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #d9b75a;
+        }
+
+
+        /* ==============================
+           HERO SECTION
+        ============================== */
+
+        .hero {
+
+            min-height: 100vh;
+
+            position: relative;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            text-align: center;
+
+            color: rgb(2, 68, 51);
+
+            background-image:
+
+                linear-gradient(
+                    rgba(0, 0, 0, 0.35),
+                    rgba(0, 0, 0, 0.55)
+                ),
+
+                url("images/kandy-hero.jpg");
+
+            background-size: cover;
+
+            background-position: center;
+
+            background-repeat: no-repeat;
+        }
+
+
+        .hero-content {
+
+            max-width: 1000px;
+
+            padding: 30px;
+
+            margin-top: 40px;
+
+            animation: fadeIn 1.5s ease;
+        }
+
+
+        .hero-small {
+
+            font-size: 16px;
+
+            letter-spacing: 5px;
+
+            font-weight: bold;
+
+            margin-bottom: 15px;
+
+            text-transform: uppercase;
+        }
+
+
+        .hero h1 {
+
+            font-size: clamp(70px, 12vw, 150px);
+
+            letter-spacing: 12px;
+
+            font-weight: 800;
+
+            line-height: 1;
+
+            margin-bottom: 20px;
+
+            text-shadow:
+                0 5px 20px rgba(0,0,0,0.5);
+        }
+
+
+        .hero h2 {
+
+            font-size: 30px;
+
+            font-weight: 400;
+
+            margin-bottom: 20px;
+        }
+
+
+        .hero p {
+
+            max-width: 750px;
+
+            margin: auto;
+
+            font-size: 18px;
+
+            margin-bottom: 30px;
+        }
+
+
+        .hero-buttons {
+
+            display: flex;
+
+            justify-content: center;
+
+            gap: 15px;
+
+            flex-wrap: wrap;
+        }
+
+
+        .btn {
+
+            display: inline-block;
+
+            padding: 13px 28px;
+
+            border-radius: 4px;
+
+            font-weight: bold;
+
+            transition: 0.3s;
+        }
+
+
+        .btn-primary {
+
+            background: #d9b75a;
+
+            color: #1c342c;
+        }
+
+
+        .btn-primary:hover {
+
+            background: white;
+
+            transform: translateY(-3px);
+        }
+
+
+        .btn-outline {
+
+            border: 2px solid white;
+
+            color: white;
+        }
+
+
+        .btn-outline:hover {
+
+            background: white;
+
+            color: #173d32;
+        }
+
+
+        .scroll {
+
+            position: absolute;
+
+            bottom: 25px;
+
+            left: 50%;
+
+            transform: translateX(-50%);
+
+            color: white;
+
+            font-size: 13px;
+
+            letter-spacing: 2px;
+
+            animation: bounce 2s infinite;
+        }
+
+
+        /* ==============================
+           SECTIONS
+        ============================== */
+
+        section {
+
+            padding: 90px 8%;
+        }
+
+
+        .section-label {
+
+            text-align: center;
+
+            font-size: 13px;
+
+            letter-spacing: 4px;
+
+            color: #a58632;
+
+            font-weight: bold;
+
+            margin-bottom: 8px;
+        }
+
+
+        .section-title {
+
+            text-align: center;
+
+            font-size: 42px;
+
+            color: #173f35;
+
+            margin-bottom: 18px;
+        }
+
+
+        .section-description {
+
+            text-align: center;
+
+            max-width: 750px;
+
+            margin: 0 auto 50px;
+
+            color: #666;
+
+            font-size: 17px;
+        }
+
+
+        /* ==============================
+           ABOUT
+        ============================== */
+
+        .about {
+
+            background: #fff;
+        }
+
+
+        .about-container {
+
+            max-width: 1200px;
+
+            margin: auto;
+
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 55px;
+
+            align-items: center;
+        }
+
+
+        .about-image img {
+
+            height: 470px;
+
+            object-fit: cover;
+
+            border-radius: 10px;
+
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+
+        .about-text h3 {
+
+            font-size: 30px;
+
+            color: #173f35;
+
+            margin-bottom: 18px;
+        }
+
+
+        .about-text p {
+
+            color: #555;
+
+            margin-bottom: 18px;
+
+            font-size: 16px;
+        }
+
+
+        .statistics {
+
+            display: grid;
+
+            grid-template-columns: repeat(3, 1fr);
+
+            gap: 15px;
+
+            margin-top: 30px;
+        }
+
+
+        .stat {
+
+            text-align: center;
+
+            padding: 18px;
+
+            background: #f2efe5;
+
+            border-radius: 8px;
+        }
+
+
+        .stat h3 {
+
+            font-size: 27px;
+
+            color: #a58632;
+        }
+
+
+        .stat p {
+
+            font-size: 13px;
+
+            margin: 0;
+        }
+
+
+        /* ==============================
+           PLACES
+        ============================== */
+
+        .places {
+
+            background: #f3f1e9;
+        }
+
+
+        .cards {
+
+            max-width: 1200px;
+
+            margin: auto;
+
+            display: grid;
+
+            grid-template-columns: repeat(4, 1fr);
+
+            gap: 22px;
+        }
+
+
+        .card {
+
+            background: white;
+
+            border-radius: 10px;
+
+            overflow: hidden;
+
+            box-shadow: 0 5px 18px rgba(0,0,0,0.1);
+
+            transition: 0.4s;
+        }
+
+
+        .card:hover {
+
+            transform: translateY(-8px);
+
+            box-shadow: 0 12px 30px rgba(0,0,0,0.18);
+        }
+
+
+        .card img {
+
+            height: 230px;
+
+            object-fit: cover;
+        }
+
+
+        .card-content {
+
+            padding: 22px;
+        }
+
+
+        .card-number {
+
+            color: #b0923b;
+
+            font-size: 13px;
+
+            font-weight: bold;
+        }
+
+
+        .card h3 {
+
+            color: #173f35;
+
+            margin: 5px 0 10px;
+
+            font-size: 21px;
+        }
+
+
+        .card p {
+
+            color: #666;
+
+            font-size: 14px;
+        }
+
+
+        /* ==============================
+           PERAHERA
+        ============================== */
+
+        .perahera {
+
+            min-height: 550px;
+
+            display: flex;
+
+            align-items: center;
+
+            color: white;
+
+            background-image:
+
+                linear-gradient(
+                    rgba(0,0,0,0.48),
+                    rgba(0,0,0,0.62)
+                ),
+
+                url("images/perahera.jpg");
+
+            background-size: cover;
+
+            background-position: center;
+
+            background-attachment: fixed;
+        }
+
+
+        .perahera-content {
+
+            max-width: 800px;
+
+            margin: auto;
+
+            text-align: center;
+        }
+
+
+        .perahera-content .section-label {
+
+            color: #e0bd5c;
+        }
+
+
+        .perahera-content h2 {
+
+            font-size: 48px;
+
+            margin-bottom: 20px;
+        }
+
+
+        .perahera-content p {
+
+            font-size: 18px;
+
+            color: #eee;
+
+            margin-bottom: 25px;
+        }
+
+
+        /* ==============================
+           URBAN KANDY
+        ============================== */
+
+        .urban {
+
+            background: white;
+        }
+
+
+        .urban-grid {
+
+            max-width: 1100px;
+
+            margin: auto;
+
+            display: grid;
+
+            grid-template-columns: repeat(3, 1fr);
+
+            gap: 25px;
+        }
+
+
+        .urban-box {
+
+            padding: 30px;
+
+            background: #f4f2ea;
+
+            border-radius: 10px;
+
+            border-top: 4px solid #c3a34a;
+
+            transition: 0.3s;
+        }
+
+
+        .urban-box:hover {
+
+            transform: translateY(-5px);
+
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
+
+
+        .urban-box .icon {
+
+            font-size: 35px;
+
+            margin-bottom: 12px;
+        }
+
+
+        .urban-box h3 {
+
+            color: #173f35;
+
+            margin-bottom: 10px;
+
+            font-size: 21px;
+        }
+
+
+        .urban-box p {
+
+            color: #666;
+
+            font-size: 15px;
+        }
+
+
+        /* ==============================
+           CULTURE
+        ============================== */
+
+        .culture {
+
+            background: #173f35;
+
+            color: white;
+        }
+
+
+        .culture .section-title {
+
+            color: white;
+        }
+
+
+        .culture .section-description {
+
+            color: #ddd;
+        }
+
+
+        .culture-grid {
+
+            max-width: 1100px;
+
+            margin: auto;
+
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 50px;
+
+            align-items: center;
+        }
+
+
+        .culture-image img {
+
+            height: 400px;
+
+            object-fit: cover;
+
+            border-radius: 10px;
+        }
+
+
+        .culture-text h3 {
+
+            font-size: 30px;
+
+            color: #e0bd5c;
+
+            margin-bottom: 18px;
+        }
+
+
+        .culture-text p {
+
+            color: #eee;
+
+            margin-bottom: 17px;
+        }
+
+
+        /* ==============================
+           FOOD
+        ============================== */
+
+        .food {
+
+            background: #f3f1e9;
+        }
+
+
+        .food-grid {
+
+            max-width: 1000px;
+
+            margin: auto;
+
+            display: grid;
+
+            grid-template-columns: repeat(3, 1fr);
+
+            gap: 25px;
+        }
+
+
+        .food-box {
+
+            background: white;
+
+            padding: 30px;
+
+            text-align: center;
+
+            border-radius: 10px;
+
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+
+
+        .food-box .emoji {
+
+            font-size: 42px;
+
+            margin-bottom: 12px;
+        }
+
+
+        .food-box h3 {
+
+            color: #173f35;
+
+            margin-bottom: 8px;
+        }
+
+
+        .food-box p {
+
+            color: #666;
+
+            font-size: 14px;
+        }
+
+
+        /* ==============================
+           GALLERY
+        ============================== */
+
+        .gallery {
+
+            background: white;
+        }
+
+
+        .gallery-grid {
+
+            max-width: 1200px;
+
+            margin: auto;
+
+            display: grid;
+
+            grid-template-columns: repeat(4, 1fr);
+
+            gap: 12px;
+        }
+
+
+        .gallery-item {
+
+            overflow: hidden;
+
+            border-radius: 8px;
+
+            height: 250px;
+        }
+
+
+        .gallery-item img {
+
+            width: 100%;
+
+            height: 100%;
+
+            object-fit: cover;
+
+            transition: 0.5s;
+        }
+
+
+        .gallery-item:hover img {
+
+            transform: scale(1.08);
+        }
+
+
+        /* ==============================
+           MAP
+        ============================== */
+
+        .location {
+
+            background: #e7ece7;
+        }
+
+
+        .map-container {
+
+            max-width: 1200px;
+
+            margin: auto;
+
+            background: white;
+
+            padding: 12px;
+
+            border-radius: 12px;
+
+            box-shadow: 0 5px 20px rgba(0,0,0,0.12);
+        }
+
+
+        .map-container iframe {
+
+            width: 100%;
+
+            height: 500px;
+
+            border: 0;
+
+            border-radius: 8px;
+        }
+
+
+        /* ==============================
+           CTA
+        ============================== */
+
+        .cta {
+
+            text-align: center;
+
+            background:
+
+                linear-gradient(
+                    rgba(23,63,53,0.92),
+                    rgba(23,63,53,0.92)
+                ),
+
+                url("images/kandy-town.jpg");
+
+            background-size: cover;
+
+            background-position: center;
+
+            color: white;
+        }
+
+
+        .cta h2 {
+
+            font-size: 45px;
+
+            margin-bottom: 15px;
+        }
+
+
+        .cta p {
+
+            max-width: 700px;
+
+            margin: 0 auto 25px;
+
+            color: #ddd;
+        }
+
+
+        /* ==============================
+           FOOTER
+        ============================== */
+
+        footer {
+
+            background: #102e27;
+
+            color: white;
+
+            text-align: center;
+
+            padding: 40px 20px;
+        }
+
+
+        footer h2 {
+
+            color: #e0bd5c;
+
+            letter-spacing: 4px;
+
+            margin-bottom: 8px;
+        }
+
+
+        footer p {
+
+            color: #bbb;
+
+            font-size: 14px;
+
+            margin: 5px;
+        }
+
+
+        /* ==============================
+           ANIMATIONS
+        ============================== */
+
+        @keyframes fadeIn {
+
+            from {
+                opacity: 0;
+                transform: translateY(25px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+
+        @keyframes bounce {
+
+            0%, 20%, 50%, 80%, 100% {
+                transform: translate(-50%, 0);
+            }
+
+            40% {
+                transform: translate(-50%, -10px);
+            }
+
+            60% {
+                transform: translate(-50%, -5px);
+            }
+        }
+
+
+        /* ==============================
+           MOBILE
+        ============================== */
+
+        @media(max-width: 1000px) {
+
+            .cards {
+
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .gallery-grid {
+
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .urban-grid {
+
+                grid-template-columns: 1fr 1fr;
+            }
+
+        }
+
+
+        @media(max-width: 750px) {
+
+            nav {
+
+                flex-direction: column;
+
+                gap: 12px;
+
+                padding: 15px;
+            }
+
+            nav ul {
+
+                gap: 12px;
+
+                flex-wrap: wrap;
+
+                justify-content: center;
+            }
+
+            .hero h1 {
+
+                letter-spacing: 5px;
+            }
+
+            .hero h2 {
+
+                font-size: 23px;
+            }
+
+            .about-container {
+
+                grid-template-columns: 1fr;
+            }
+
+            .culture-grid {
+
+                grid-template-columns: 1fr;
+            }
+
+            .urban-grid {
+
+                grid-template-columns: 1fr;
+            }
+
+            .food-grid {
+
+                grid-template-columns: 1fr;
+            }
+
+            .statistics {
+
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+
+        @media(max-width: 550px) {
+
+            section {
+
+                padding: 65px 5%;
+            }
+
+            .hero-small {
+
+                font-size: 12px;
+
+                letter-spacing: 3px;
+            }
+
+            .hero h1 {
+
+                font-size: 55px;
+            }
+
+            .hero p {
+
+                font-size: 15px;
+            }
+
+            .cards {
+
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-grid {
+
+                grid-template-columns: 1fr;
+            }
+
+            .section-title {
+
+                font-size: 32px;
+            }
+
+            .perahera-content h2 {
+
+                font-size: 35px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- ==========================================
+     NAVIGATION
+========================================== -->
+
+<nav>
+
+    <div class="logo">
+        KANDY
+    </div>
+
+    <ul>
+
+        <li>
+            <a href="#home">Home</a>
+        </li>
+
+        <li>
+            <a href="#about">About</a>
+        </li>
+
+        <li>
+            <a href="#places">Places</a>
+        </li>
+
+        <li>
+            <a href="#urban">Urban Kandy</a>
+        </li>
+
+        <li>
+            <a href="#gallery">Gallery</a>
+        </li>
+
+        <li>
+            <a href="#location">Map</a>
+        </li>
+
+    </ul>
+
+</nav>
+
+
+<!-- ==========================================
+     HERO
+========================================== -->
+
+<section class="hero" id="home">
+
+    <div class="hero-content">
+
+        <div class="hero-small">
+            Welcome to Sri Lanka
+        </div>
+
+
+        <h1>
+            KANDY
+        </h1>
+
+
+        <h2>
+            The Cultural Heart of Sri Lanka
+        </h2>
+
+
+        <p>
+            Discover ancient traditions, breathtaking mountains,
+            sacred temples and the unforgettable beauty of Kandy.
+        </p>
+
+
+        <div class="hero-buttons">
+
+            <a href="#about" class="btn btn-primary">
+                Explore Kandy
+            </a>
+
+
+            <a href="#places" class="btn btn-outline">
+                Discover More
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <div class="scroll">
+        ↓ &nbsp; SCROLL TO EXPLORE
+    </div>
+
+</section>
+
+
+<!-- ==========================================
+     ABOUT
+========================================== -->
+
+<section class="about" id="about">
+
+    <div class="section-label">
+        DISCOVER
+    </div>
+
+    <h2 class="section-title">
+        About Kandy
+    </h2>
+
+    <p class="section-description">
+
+        A historic city where heritage, nature,
+        culture and urban life come together.
+
+    </p>
+
+
+    <div class="about-container">
+
+
+        <div class="about-image">
+
+            <img
+                src="c:\Users\ASUS\Desktop\Maligawa with lake.jpg"
+                alt="Kandy Lake and Temple of the Tooth">
+
+        </div>
+
+
+        <div class="about-text">
+
+            <h3>
+                Where History Meets Nature
+            </h3>
+
+
+            <p>
+
+                Kandy is one of Sri Lanka's most important
+                historic cities. Surrounded by green hills,
+                the city has a unique relationship between
+                natural landscapes and urban development.
+
+            </p>
+
+
+            <p>
+
+                Kandy was the last royal capital of Sri Lanka
+                and remains an important centre of religion,
+                culture, education, tourism and commerce.
+
+            </p>
+
+
+            <p>
+
+                The historic city centre, Kandy Lake,
+                Temple of the Tooth and surrounding hills
+                create a distinctive urban landscape.
+
+            </p>
+
+
+            <div class="statistics">
+
+
+                <div class="stat">
+
+                    <h3>1988</h3>
+
+                    <p>
+                        UNESCO Heritage
+                    </p>
+
+                </div>
+
+
+                <div class="stat">
+
+                    <h3>500+</h3>
+
+                    <p>
+                        Years of History
+                    </p>
+
+                </div>
+
+
+                <div class="stat">
+
+                    <h3>465m</h3>
+
+                    <p>
+                        Approx. Elevation
+                    </p>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ==========================================
+     PLACES
+========================================== -->
+
+<section class="places" id="places">
+
+    <div class="section-label">
+        EXPLORE
+    </div>
+
+    <h2 class="section-title">
+        Places to Visit
+    </h2>
+
+    <p class="section-description">
+
+        Explore the landmarks and landscapes that
+        make Kandy unique.
+
+    </p>
+
+
+    <div class="cards">
+
+
+        <!-- CARD 1 -->
+
+        <div class="card">
+
+            <img
+                src="c:\Users\ASUS\Desktop\temple-tooth-mob.jpg"
+                alt="Temple of the Tooth">
+
+
+            <div class="card-content">
+
+                <span class="card-number">
+                    01
+                </span>
+
+                <h3>
+                    Temple of the Tooth
+                </h3>
+
+                <p>
+
+                   The Temple of the Sacred Tooth Relic (Dalada Maligawa) is one of Sri Lanka’s most sacred Buddhist sites, located in the heart of Kandy beside the historic Kandy Lake.
+
+It houses the sacred tooth relic of the Buddha and is a major cultural, religious, and historical landmark, attracting pilgrims and visitors from around the world.
+
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- CARD 2 -->
+
+        <div class="card">
+
+            <img
+                src="c:\Users\ASUS\Desktop\1_UTMYLJ4O9xJS89SazTUBLw.jpg"
+                alt="Kandy Lake">
+
+
+            <div class="card-content">
+
+                <span class="card-number">
+                    02
+                </span>
+
+                <h3>
+                    Kandy Lake
+                </h3>
+
+                <p>
+
+                    Kandy Lake Round is a scenic road that circles the historic Kandy Lake, connecting several important landmarks and public spaces in the heart of Kandy.
+
+It is a popular area for walking, sightseeing, and experiencing Kandy’s historic landscape, with views of the lake, Temple of the Sacred Tooth Relic, and surrounding hills.
+
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- CARD 3 -->
+
+        <div class="card">
+
+            <img
+                src="c:\Users\ASUS\Desktop\e4f46333a4602a5c1e977216a9e6fd9d.jpg"
+                alt="Queen's Hotel">
+
+
+            <div class="card-content">
+
+                <span class="card-number">
+                    03
+                </span>
+
+                <h3>
+                    Queen's Hotel
+                </h3>
+
+                <p>
+
+                    Queen's Hotel is a historic colonial-style hotel in the heart of Kandy, overlooking Kandy Lake and located opposite the Temple of the Sacred Tooth Relic.
+
+With over 160 years of history, it is one of Kandy’s most iconic heritage landmarks, known for its distinctive colonial architecture and cultural significance.
+
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- CARD 4 -->
+
+        <div class="card">
+
+            <img
+                src="c:\Users\ASUS\Desktop\6a15064e8a0a836fdcd9d0cc22a0d3d5.jpg"
+                alt="Bahirawakanda">
+
+
+            <div class="card-content">
+
+                <span class="card-number">
+                    04
+                </span>
+
+                <h3>
+                    Bahirawakanda
+                </h3>
+
+                <p>
+
+                   Bahirawakanda Temple is a prominent Buddhist temple situated on a hill overlooking Kandy, famous for its large white Buddha statue that can be seen from many parts of the city.
+
+The temple offers panoramic views of Kandy and its surrounding hills, making it both an important religious site and a popular scenic attraction.
+
+                </p>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- ==========================================
+     PERAHERA
+========================================== -->
+
+<section class="perahera">
+
+    <div class="perahera-content">
+
+        <div class="section-label">
+            TRADITION • CULTURE • HERITAGE
+        </div>
+
+
+        <h2>
+            Kandy Esala Perahera
+        </h2>
+
+
+        <p>
+
+            One of Sri Lanka's most spectacular cultural
+            celebrations, bringing together traditional
+            dancers, drummers, decorated elephants and
+            centuries-old traditions.
+
+        </p>
+
+
+        <a
+            href="#culture"
+            class="btn btn-primary">
+
+            Learn More
+
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- ==========================================
+     URBAN CHARACTER
+========================================== -->
+
+<section class="urban" id="urban">
+
+    <div class="section-label">
+        URBAN KANDY
+    </div>
+
+
+    <h2 class="section-title">
+        Kandy as a Living City
+    </h2>
+
+
+    <p class="section-description">
+
+        From an urban planning perspective, Kandy
+        combines heritage, movement, natural systems
+        and diverse urban activities.
+
+    </p>
+
+
+    <div class="urban-grid">
+
+
+        <div class="urban-box">
+
+            <div class="icon">
+                🏙️
+            </div>
+
+            <h3>
+                Mixed Land Use
+            </h3>
+
+            <p>
+
+                Commercial, residential, religious,
+                institutional and recreational activities
+                exist within the urban area.
+
+            </p>
+
+        </div>
+
+
+        <div class="urban-box">
+
+            <div class="icon">
+                🚶
+            </div>
+
+            <h3>
+                Walkability
+            </h3>
+
+            <p>
+
+                Many important destinations are located
+                close to the city centre, creating
+                opportunities for pedestrian movement.
+
+            </p>
+
+        </div>
+
+
+        <div class="urban-box">
+
+            <div class="icon">
+                🚌
+            </div>
+
+            <h3>
+                Transportation
+            </h3>
+
+            <p>
+
+                Buses, trains(Temporary not available), three-wheelers, private
+                vehicles and pedestrians form a complex
+                urban transportation system.
+
+            </p>
+
+        </div>
+
+
+        <div class="urban-box">
+
+            <div class="icon">
+                🌳
+            </div>
+
+            <h3>
+                Natural Environment
+            </h3>
+
+            <p>
+
+                Hills, forests, vegetation and water
+                bodies strongly influence the urban form.
+
+            </p>
+
+        </div>
+
+
+        <div class="urban-box">
+
+            <div class="icon">
+                🏛️
+            </div>
+
+            <h3>
+                Heritage
+            </h3>
+
+            <p>
+
+                Historic buildings, religious landmarks
+                and cultural spaces contribute to Kandy's
+                unique identity.
+
+            </p>
+
+        </div>
+
+
+        <div class="urban-box">
+
+            <div class="icon">
+                👥
+            </div>
+
+            <h3>
+                Community
+            </h3>
+
+            <p>
+
+                Residents, businesses, students, visitors
+                and institutions contribute to the city's
+                social and economic life.
+
+            </p>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- ==========================================
+     CULTURE
+========================================== -->
+
+<section class="culture" id="culture">
+
+    <div class="section-label">
+        TRADITION & HERITAGE
+    </div>
+
+
+    <h2 class="section-title">
+        Culture & Heritage
+    </h2>
+
+
+    <p class="section-description">
+
+        Kandy's cultural identity is deeply connected
+        with its history, religion and traditions.
+
+    </p>
+
+
+    <div class="culture-grid">
+
+
+        <div class="culture-image">
+
+            <img
+                src="c:\Users\ASUS\Desktop\0bed5ab61979ca0743a5a0ec18c7d5f1.jpg"
+                alt="Kandy Esala Perahera">
+
+        </div>
+
+
+        <div class="culture-text">
+
+            <h3>
+                A Living Cultural Landscape
+            </h3>
+
+
+            <p>
+
+                Kandy is strongly associated with Sri Lankan
+                Buddhist traditions, historic institutions,
+                traditional performing arts and cultural
+                celebrations.
+
+            </p>
+
+
+            <p>
+
+                The Temple of the Tooth and the Kandy Esala
+                Perahera are particularly important elements
+                of the city's cultural identity.
+
+            </p>
+
+
+            <p>
+
+                The relationship between heritage buildings,
+                streets, public spaces and surrounding
+                landscapes creates a strong sense of place.
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ==========================================
+     FOOD
+========================================== -->
+
+<section class="food">
+
+    <div class="section-label">
+        MULTICULTURAL NATURE OF KANDY
+    </div>
+
+
+    <h2 class="section-title">
+        Population Details
+    </h2>
+
+
+    <p class="section-description">
+
+        The diverse & multi-cultural nature of kandy
+
+    </p>
+
+
+    <div class="Population Details">
+
+        <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Kandy Population Profile - Census 2024</title>
+
+<style>
+
+/* ================= GENERAL ================= */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 25px;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #eef1f5;
+    color: #222;
+}
+
+.container {
+    max-width: 1400px;
+    margin: auto;
+}
+
+
+/* ================= HEADER ================= */
+
+.header {
+    background: linear-gradient(135deg, #173f6b, #397db5);
+    color: white;
+    padding: 30px;
+    text-align: center;
+    border-radius: 15px;
+    margin-bottom: 25px;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.18);
+}
+
+.header h1 {
+    margin: 0;
+    font-size: 34px;
+}
+
+.header p {
+    margin-top: 8px;
+    font-size: 16px;
+}
+
+
+/* ================= SUMMARY ================= */
+
+.summary {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+    margin-bottom: 22px;
+}
+
+.stat {
+    background: white;
+    padding: 20px;
+    text-align: center;
+    border-radius: 12px;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.12);
+}
+
+.stat h3 {
+    margin: 0 0 8px;
+    color: #777;
+    font-size: 14px;
+}
+
+.stat p {
+    margin: 0;
+    font-size: 26px;
+    font-weight: bold;
+    color: #24649a;
+}
+
+
+/* ================= DASHBOARD ================= */
+
+.dashboard {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.card {
+    background: white;
+    padding: 20px;
+    border-radius: 13px;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.12);
+}
+
+.card.full {
+    grid-column: 1 / -1;
+}
+
+.card h2 {
+    background: #e2ebf4;
+    color: #173f6b;
+    padding: 12px;
+    text-align: center;
+    border-radius: 8px;
+    margin-top: 0;
+}
+
+
+/* ================= PIE CHART ================= */
+
+.pie-area {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 35px;
+    min-height: 330px;
+}
+
+.pie-wrapper {
+    position: relative;
+    width: 240px;
+    height: 240px;
+    flex-shrink: 0;
+}
+
+
+/* 3D bottom layer */
+
+.pie-wrapper::after {
+    content: "";
+    position: absolute;
+    width: 240px;
+    height: 240px;
+    top: 15px;
+    left: 0;
+    border-radius: 50%;
+    z-index: 0;
+    filter: brightness(0.65);
+}
+
+
+/* Main pie */
+
+.pie {
+    position: relative;
+    width: 240px;
+    height: 240px;
+    border-radius: 50%;
+    z-index: 2;
+
+    box-shadow:
+        0 8px 0 rgba(0,0,0,0.15),
+        0 15px 20px rgba(0,0,0,0.25);
+
+    transform: rotateX(15deg);
+}
+
+
+/* ================= PIE COLORS ================= */
+
+.gender-pie {
+    background:
+    conic-gradient(
+        #3468c0 0% 46.7%,
+        #e53612 46.7% 100%
+    );
+}
+
+.age-pie {
+    background:
+    conic-gradient(
+        #3468c0 0% 17.5%,
+        #e53612 17.5% 85%,
+        #ff9800 85% 100%
+    );
+}
+
+.urban-pie {
+    background:
+    conic-gradient(
+        #178b28 0% 41.7%,
+        #ff9800 41.7% 100%
+    );
+}
+
+.ethnic-pie {
+    background:
+    conic-gradient(
+        #3468c0 0% 75.3%,
+        #e53612 75.3% 86.3%,
+        #ff9800 86.3% 87.5%,
+        #159329 87.5% 99.3%,
+        #8e24aa 99.3% 100%
+    );
+}
+
+.religion-pie {
+    background:
+    conic-gradient(
+        #3468c0 0% 72.4%,
+        #e53612 72.4% 82.6%,
+        #ff9800 82.6% 94.7%,
+        #159329 94.7% 100%
+    );
+}
+
+
+/* ================= PIE LABELS ================= */
+
+.pie-label {
+    position: absolute;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    text-shadow: 1px 2px 3px #333;
+    z-index: 5;
+}
+
+.label1 {
+    top: 55px;
+    left: 45px;
+}
+
+.label2 {
+    bottom: 55px;
+    right: 35px;
+}
+
+
+/* ================= LEGEND ================= */
+
+.legend {
+    min-width: 180px;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    margin: 12px 0;
+    font-size: 15px;
+}
+
+.legend-color {
+    width: 18px;
+    height: 18px;
+    margin-right: 9px;
+    border-radius: 2px;
+}
+
+
+/* ================= TABLE ================= */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+th {
+    background: #dce8f3;
+    color: #173f6b;
+    padding: 10px;
+    text-align: left;
+}
+
+td {
+    padding: 9px 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+td:last-child {
+    text-align: right;
+}
+
+tr:hover {
+    background: #f5f8fc;
+}
+
+
+/* ================= BAR CHART ================= */
+
+.bar-chart {
+    height: 400px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-around;
+    padding: 30px 20px 55px;
+    border-left: 2px solid #555;
+    border-bottom: 2px solid #555;
+    margin: 20px;
+    position: relative;
+    background:
+        repeating-linear-gradient(
+            to top,
+            transparent 0px,
+            transparent 69px,
+            #ddd 70px
+        );
+}
+
+.bar-container {
+    height: 100%;
+    width: 7%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    position: relative;
+}
+
+.bar {
+    width: 70%;
+    max-width: 45px;
+    background: linear-gradient(
+        to right,
+        #2457a6,
+        #3979d0,
+        #2457a6
+    );
+
+    border-radius: 3px 3px 0 0;
+
+    box-shadow:
+        5px 0 0 #173d78,
+        8px 5px 10px rgba(0,0,0,0.2);
+
+    position: relative;
+}
+
+.bar:hover {
+    filter: brightness(1.15);
+}
+
+.bar-value {
+    position: absolute;
+    top: -25px;
+    width: 100%;
+    text-align: center;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.bar-label {
+    position: absolute;
+    bottom: -45px;
+    width: 100px;
+    text-align: center;
+    font-size: 12px;
+    transform: rotate(-45deg);
+}
+
+
+/* ================= FOOTER ================= */
+
+footer {
+    text-align: center;
+    padding: 25px;
+    color: #777;
+}
+
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 900px) {
+
+    .dashboard {
+        grid-template-columns: 1fr;
+    }
+
+    .card.full {
+        grid-column: auto;
+    }
+
+    .summary {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+
+    body {
+        padding: 10px;
+    }
+
+    .summary {
+        grid-template-columns: 1fr;
+    }
+
+    .pie-area {
+        flex-direction: column;
+    }
+
+    .header h1 {
+        font-size: 25px;
+    }
+}
+
+</style>
+</head>
+
+
+<body>
+
+<div class="container">
+
+
+<!-- ================= HEADER ================= -->
+
+<div class="header">
+
+    <h1>KANDY POPULATION PROFILE</h1>
+
+    <p>
+        Demographic and Socio-Cultural Characteristics – Census 2024
+    </p>
+
+</div>
+
+
+<!-- ================= SUMMARY ================= -->
+
+<div class="summary">
+
+    <div class="stat">
+        <h3>Total Population</h3>
+        <p>153,329</p>
+    </div>
+
+    <div class="stat">
+        <h3>Urban Population</h3>
+        <p>89,360</p>
+    </div>
+
+    <div class="stat">
+        <h3>Rural Population</h3>
+        <p>63,969</p>
+    </div>
+
+    <div class="stat">
+        <h3>Female Population</h3>
+        <p>53.3%</p>
+    </div>
+
+</div>
+
+
+<div class="dashboard">
+
+
+<!-- ================= GENDER ================= -->
+
+<div class="card">
+
+<h2>Gender Distribution (C 2024)</h2>
+
+<div class="pie-area">
+
+    <div class="pie-wrapper">
+
+        <div class="pie gender-pie">
+
+            <span class="pie-label label1">46.7%</span>
+            <span class="pie-label label2">53.3%</span>
+
+        </div>
+
+    </div>
+
+
+    <div class="legend">
+
+        <div class="legend-item">
+            <span
+                class="legend-color"
+                style="background:#3468c0">
+            </span>
+            Males
+        </div>
+
+        <div class="legend-item">
+            <span
+                class="legend-color"
+                style="background:#e53612">
+            </span>
+            Females
+        </div>
+
+    </div>
+
+</div>
+
+
+<table>
+
+<tr>
+<th>Gender</th>
+<th>Population</th>
+</tr>
+
+<tr>
+<td>Males</td>
+<td>71,662</td>
+</tr>
+
+<tr>
+<td>Females</td>
+<td>81,667</td>
+</tr>
+
+</table>
+
+</div>
+
+
+<!-- ================= AGE GROUP ================= -->
+
+<div class="card">
+
+<h2>Age Groups (C 2024)</h2>
+
+<div class="pie-area">
+
+<div class="pie-wrapper">
+
+<div class="pie age-pie">
+
+<span class="pie-label label1">17.5%</span>
+
+<span
+class="pie-label"
+style="top:105px;left:90px">
+67.5%
+</span>
+
+<span
+class="pie-label"
+style="bottom:45px;right:40px">
+15%
+</span>
+
+</div>
+
+</div>
+
+
+<div class="legend">
+
+<div class="legend-item">
+<span class="legend-color"
+style="background:#3468c0"></span>
+0–14 years
+</div>
+
+<div class="legend-item">
+<span class="legend-color"
+style="background:#e53612"></span>
+15–64 years
+</div>
+
+<div class="legend-item">
+<span class="legend-color"
+style="background:#ff9800"></span>
+65+ years
+</div>
+
+</div>
+
+</div>
+
+
+<table>
+
+<tr>
+<th>Age Group</th>
+<th>Population</th>
+</tr>
+
+<tr>
+<td>0–14 years</td>
+<td>26,844</td>
+</tr>
+
+<tr>
+<td>15–64 years</td>
+<td>103,463</td>
+</tr>
+
+<tr>
+<td>65+ years</td>
+<td>23,022</td>
+</tr>
+
+</table>
+
+</div>
+
+
+<!-- ================= AGE DISTRIBUTION ================= -->
+
+<div class="card full">
+
+<h2>Age Distribution (C 2024)</h2>
+
+
+<div class="bar-chart">
+
+<!-- 0-9 -->
+
+<div class="bar-container">
+
+<div class="bar" style="height:63%">
+
+<span class="bar-value">15,664</span>
+
+</div>
+
+<span class="bar-label">0–9 years</span>
+
+</div>
+
+
+<!-- 10-19 -->
+
+<div class="bar-container">
+
+<div class="bar" style="height:92%">
+
+<span class="bar-value">22,956</span>
+
+</div>
+
+<span class="bar-label">10–19 years</span>
+
+</div>
+
+
+<!-- 20-29 -->
+
+<div class="bar-container">
+
+<div class="bar" style="height:100%">
+
+<span class="bar-value">24,915</span>
+
+</div>
+
+<span class="bar-label">20–29 years</span>
+
+</div>
+
+
+<!-- 30-39 -->
+
+<div class="bar-container">
+
+<div class="bar" style="height:71%">
+
+<span class="bar-value">17,671</span>
+
+</div>
+
+<span class="bar-label">30–39 years</span>
+
+</div>
+
+
+<!-- 40-49 -->
+
+<div class="bar-container">
+
+<div class="bar" style="height:83%">
+
+<span class="bar-value">20,686</span>
+
+</div>
+
+<span class="bar-label">40–49 years</span>
+
+</div>
+
+
+<!-- 50-59 -->
+
+<div class="bar-container">
+
+<div class="bar" style="height:79%">
+
+<span class="bar-value">19,572</span>
+
+</div>
+
+<span class="bar-label">50–59 years</span>
+
+</div>
+
+
+<!-- 60-69 -->
+
+<div class="bar-container">
+
+<div class="bar" style="height:67%">
+
+<span class="bar-value">16,637</span>
+
+</div>
+
+<span class="bar-label">60–69 years</span>
+
+</div>
+
+
+<!-- 70-79 -->
+
+<div class="bar-container">
+
+<div class="bar" style="height:44%">
+
+<span class="bar-value">10,920</span>
+
+</div>
+
+<span class="bar-label">70–79 years</span>
+
+</div>
+
+
+<!-- 80-89 -->
+
+<div class="bar-container">
+
+<div class="bar" style="height:15%">
+
+<span class="bar-value">3,714</span>
+
+</div>
+
+<span class="bar-label">80–89 years</span>
+
+</div>
+
+
+<!-- 90+ -->
+
+<div class="bar-container">
+
+<div class="bar" style="height:3%">
+
+<span class="bar-value">594</span>
+
+</div>
+
+<span class="bar-label">90+ years</span>
+
+</div>
+
+</div>
+
+
+<table>
+
+<tr>
+<th>Age Group</th>
+<th>Population</th>
+<th>Age Group</th>
+<th>Population</th>
+</tr>
+
+<tr>
+<td>0–9 years</td>
+<td>15,664</td>
+<td>50–59 years</td>
+<td>19,572</td>
+</tr>
+
+<tr>
+<td>10–19 years</td>
+<td>22,956</td>
+<td>60–69 years</td>
+<td>16,637</td>
+</tr>
+
+<tr>
+<td>20–29 years</td>
+<td>24,915</td>
+<td>70–79 years</td>
+<td>10,920</td>
+</tr>
+
+<tr>
+<td>30–39 years</td>
+<td>17,671</td>
+<td>80–89 years</td>
+<td>3,714</td>
+</tr>
+
+<tr>
+<td>40–49 years</td>
+<td>20,686</td>
+<td>90+ years</td>
+<td>594</td>
+</tr>
+
+</table>
+
+</div>
+
+
+<!-- ================= URBANIZATION ================= -->
+
+<div class="card">
+
+<h2>Urbanization (C 2024)</h2>
+
+<div class="pie-area">
+
+<div class="pie-wrapper">
+
+<div class="pie urban-pie">
+
+<span class="pie-label label1">41.7%</span>
+
+<span
+class="pie-label"
+style="bottom:60px;right:40px">
+58.3%
+</span>
+
+</div>
+
+</div>
+
+
+<div class="legend">
+
+<div class="legend-item">
+<span class="legend-color"
+style="background:#178b28"></span>
+Rural
+</div>
+
+<div class="legend-item">
+<span class="legend-color"
+style="background:#ff9800"></span>
+Urban
+</div>
+
+</div>
+
+</div>
+
+
+<table>
+
+<tr>
+<th>Settlement Type</th>
+<th>Population</th>
+</tr>
+
+<tr>
+<td>Rural</td>
+<td>63,969</td>
+</tr>
+
+<tr>
+<td>Urban</td>
+<td>89,360</td>
+</tr>
+
+</table>
+
+</div>
+
+
+<!-- ================= ETHNIC GROUP ================= -->
+
+<div class="card">
+
+<h2>Ethnic Group (C 2024)</h2>
+
+<div class="pie-area">
+
+<div class="pie-wrapper">
+
+<div class="pie ethnic-pie">
+
+<span
+class="pie-label"
+style="top:100px;left:75px">
+75.3%
+</span>
+
+<span
+class="pie-label"
+style="top:55px;right:20px">
+11%
+</span>
+
+<span
+class="pie-label"
+style="bottom:50px;right:25px">
+11.8%
+</span>
+
+</div>
+
+</div>
+
+
+<div class="legend">
+
+<div class="legend-item">
+<span class="legend-color"
+style="background:#3468c0"></span>
+Sinhalese
+</div>
+
+<div class="legend-item">
+<span class="legend-color"
+style="background:#e53612"></span>
+Sri Lankan Tamil
+</div>
+
+<div class="legend-item">
+<span class="legend-color"
+style="background:#ff9800"></span>
+Indian Tamil
+</div>
+
+<div class="legend-item">
+<span class="legend-color"
+style="background:#159329"></span>
+Sri Lankan Moor
+</div>
+
+<div class="legend-item">
+<span class="legend-color"
+style="background:#8e24aa"></span>
+Other ethnic group
+</div>
+
+</div>
+
+</div>
+
+
+<table>
+
+<tr>
+<th>Ethnic Group</th>
+<th>Population</th>
+</tr>
+
+<tr>
+<td>Sinhalese</td>
+<td>115,488</td>
+</tr>
+
+<tr>
+<td>Sri Lankan Tamil</td>
+<td>16,811</td>
+</tr>
+
+<tr>
+<td>Indian Tamil</td>
+<td>1,808</td>
+</tr>
+
+<tr>
+<td>Sri Lankan Moor</td>
+<td>18,099</td>
+</tr>
+
+<tr>
+<td>Other ethnic group</td>
+<td>1,123</td>
+</tr>
+
+</table>
+
+</div>
+
+
+<!-- ================= RELIGION ================= -->
+
+<div class="card full">
+
+<h2>Religion (C 2024)</h2>
+
+<div class="pie-area">
+
+<div class="pie-wrapper">
+
+<div class="pie religion-pie">
+
+<span
+class="pie-label"
+style="top:105px;left:75px">
+72.4%
+</span>
+
+<span
+class="pie-label"
+style="top:80px;right:20px">
+10.2%
+</span>
+
+<span
+class="pie-label"
+style="top:45px;right:65px">
+12.1%
+</span>
+
+</div>
+
+</div>
+
+
+<div class="legend">
+
+<div class="legend-item">
+<span class="legend-color"
+style="background:#3468c0"></span>
+Buddhists
+</div>
+
+<div class="legend-item">
+<span class="legend-color"
+style="background:#e53612"></span>
+Hindus
+</div>
+
+<div class="legend-item">
+<span class="legend-color"
+style="background:#ff9800"></span>
+Muslims
+</div>
+
+<div class="legend-item">
+<span class="legend-color"
+style="background:#159329"></span>
+Christians
+</div>
+
+<div class="legend-item">
+<span class="legend-color"
+style="background:#8e24aa"></span>
+Other religion
+</div>
+
+</div>
+
+</div>
+
+
+<table>
+
+<tr>
+<th>Religion</th>
+<th>Population</th>
+</tr>
+
+<tr>
+<td>Buddhists</td>
+<td>110,984</td>
+</tr>
+
+<tr>
+<td>Hindus</td>
+<td>15,674</td>
+</tr>
+
+<tr>
+<td>Muslims</td>
+<td>18,558</td>
+</tr>
+
+<tr>
+<td>Christians</td>
+<td>8,070</td>
+</tr>
+
+<tr>
+<td>Other religion</td>
+<td>43</td>
+</tr>
+
+</table>
+
+</div>
+
+</div>
+
+
+<footer>
+Kandy Population Profile | Census 2024
+</footer>
+
+</div>
+
+</body>
+</html>
+
+
+    </div>
+
+</section>
+
+
+<!-- ==========================================
+     GALLERY
+========================================== -->
+
+<section class="gallery" id="gallery">
+
+    <div class="section-label">
+        VISUAL JOURNEY
+    </div>
+
+
+    <h2 class="section-title">
+        Kandy Gallery
+    </h2>
+
+
+    <p class="section-description">
+
+        A visual collection of Kandy's landscapes,
+        heritage and urban spaces.
+
+    </p>
+
+
+    <div class="gallery-grid">
+
+
+        <div class="gallery-item">
+
+            <img
+                src="c:\Users\ASUS\Desktop\1a6fc3dd190e2ea9704a523dab6dc082.jpg"
+                alt="Kandy">
+
+        </div>
+
+
+        <div class="gallery-item">
+
+            <img
+                src="c:\Users\ASUS\Desktop\temple-tooth-mob.jpg"
+                alt="Temple of the Tooth">
+
+        </div>
+
+
+        <div class="gallery-item">
+
+            <img
+                src="c:\Users\ASUS\Desktop\a3075d6701a470ce2acef61fa552ae17.jpg"
+                alt="Kandy Lake">
+
+        </div>
+
+
+        <div class="gallery-item">
+
+            <img
+                src="c:\Users\ASUS\Desktop\ee12124b25a827b154a3a6d4957573ca.jpg"
+                alt="Clock Tower">
+
+        </div>
+
+
+        <div class="gallery-item">
+
+            <img
+                src="c:\Users\ASUS\Desktop\e4f46333a4602a5c1e977216a9e6fd9d.jpg"
+                alt="Queen's Hotel">
+
+        </div>
+
+
+        <div class="gallery-item">
+
+            <img
+                src="c:\Users\ASUS\Desktop\faa95a15b16399e318b90d9a120bc2a7.jpg"
+                alt="Kandy Town">
+
+        </div>
+
+
+        <div class="gallery-item">
+
+            <img
+                src="c:\Users\ASUS\Desktop\fd17f8dae7f503f59b6afe47123f0f0a.jpg"
+                alt="Kandy Perahera">
+
+        </div>
+
+
+        <div class="gallery-item">
+
+            <img
+                src="c:\Users\ASUS\Desktop\575fad24e7313a1d8a893abd2aa93728.jpg"
+                alt="Udawatta Kele">
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- ==========================================
+     GOOGLE MAP
+========================================== -->
+
+<section class="location" id="location">
+
+    <div class="section-label">
+        FIND YOUR WAY
+    </div>
+
+
+    <h2 class="section-title">
+        Location
+    </h2>
+
+
+    <p class="section-description">
+
+        Explore Kandy Town and the Gangawata Korale
+        area using Google Maps.
+
+    </p>
+
+
+    <div class="map-container">
+
+        <iframe
+
+            src="https://www.google.com/maps?q=Gangawata%20Korale%2C%20Kandy%2C%20Sri%20Lanka&output=embed"
+
+            loading="lazy"
+
+            allowfullscreen=""
+
+            referrerpolicy="no-referrer-when-downgrade">
+
+        </iframe>
+
+    </div>
+
+</section>
+
+
+<!-- ==========================================
+     FINAL SECTION
+========================================== -->
+
+<section class="cta">
+
+    <div class="section-label">
+        YOUR JOURNEY STARTS HERE
+    </div>
+
+
+    <h2>
+        Discover Kandy
+    </h2>
+
+
+    <p>
+
+        From ancient temples to misty mountains,
+        Kandy continues to bring together history,
+        culture, nature and urban life.
+
+    </p>
+
+
+    <a
+        href="#home"
+        class="btn btn-primary">
+
+        Back to Top
+
+    </a>
+
+</section>
+
+
+<!-- ==========================================
+     FOOTER
+========================================== -->
+
+<footer>
+
+    <h2>
+        KANDY.
+    </h2>
+
+
+    <p>
+        The Cultural Heart of Sri Lanka
+    </p>
+
+
+    <p>
+        Gangawata Korale • Kandy District • Sri Lanka
+    </p>
+
+
+    <br>
+
+
+    <p>
+        © 2026 H.M.L.J. H E R A T H | 252332J
+    </p>
+
+
+    <p>
+       Department of Town & Country Planning • University of Moratuwa
+    </p>
+
+</footer>
+
+
+</body>
+
+</html>
